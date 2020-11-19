@@ -29,4 +29,10 @@ public class Goods {
     @Column(name = "num")
     private Integer num;
 
+    @Column(name = "category_name")
+    private Integer categoryName;
+
+    @Column(name = "img")
+    private String  img;
+
 }
