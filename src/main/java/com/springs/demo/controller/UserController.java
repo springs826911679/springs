@@ -23,7 +23,7 @@ public class UserController {
 
     @Autowired
     UserService userService;
-    @PostMapping ("/users")
+    @PostMapping ("/register")
     public User insertOne(@RequestBody User user) {
 
         if (userService.findFirstByUserByName(user.getUsername())==null){

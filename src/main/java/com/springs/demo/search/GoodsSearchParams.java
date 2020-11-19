@@ -16,4 +16,12 @@ public class GoodsSearchParams extends SearchParams {
     @SearchProporty
     public String  name;
 
+    @SearchProporty
+    public String categoryName;
+
+ //   @SearchProporty
+
+  //  public String categoryName;
+
+
 }
