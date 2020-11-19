@@ -10,7 +10,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/").hasRole("admin");//指定角色
-        http.formLogin().loginPage("/index");//指定登录页面
+//        http.authorizeRequests().antMatchers("/").hasRole("admin");//指定角色
+//        http.formLogin().loginPage("/index");//指定登录页面
     }
 }

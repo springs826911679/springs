@@ -17,7 +17,7 @@ public class TestController {
     @RequestMapping("/index")
     public String test(){
 
-        System.out.println(userService.getCurrentUser());
-        return "index";
+       // System.out.println(userService.getCurrentUser());
+        return "show";
     }
 }
