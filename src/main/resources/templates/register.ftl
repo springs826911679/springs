@@ -5,6 +5,7 @@
     <title>love</title>
     <link href="favicon.ico" rel="shortcut icon" />
     <link href="https://cdn.bootcss.com/twitter-bootstrap/3.4.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body style=" background: url(
 '/login—background.png'
@@ -20,19 +21,19 @@
         <div class="modal-body" id = "model-body">
             <div class="form-group">
 
-                <input type="text" class="form-control"placeholder="用户名" autocomplete="off">
+                <input type="text" name="username" class="form-control"placeholder="用户名" id="username">
             </div>
             <div class="form-group">
 
-                <input type="password" class="form-control" placeholder="密码" autocomplete="off">
+                <input type="text" name="password" class="form-control" placeholder="密码" id="password">
             </div>
         </div>
         <div class="modal-footer">
             <div class="form-group">
-                <button type="button" class="btn btn-primary form-control">登录</button>
+                <button type="submit" class="btn btn-primary form-control" id="btn">注册</button>
             </div>
             <div class="form-group">
-                <button type="button" class="btn btn-default form-control">注册</button>
+                <a type="button" class="btn btn-default form-control" href="/login">返回</a>
             </div>
 
         </div>
@@ -40,4 +41,28 @@
 </div><!-- /.modal -->
 
 </body>
+<script>
+    $("#btn").click(function () {
+        var list = {};
+        list.username = $('#username').val();
+        list.password = $('#password').val();
+        console.log(list);
+        $.ajax({
+            url: '/api/register',
+            method: 'POST',
+            contentType: 'application/json',
+            dataType: 'json',
+            data: JSON.stringify(list),
+            success: function (result) {
+                console.log('注册成功');
+                // console.log(result.status);
+                    window.location.href = '/login';
+            },
+            error: function (result) {
+                console.log('注册bu成功');
+                console.log(result);
+            }
+        })
+    })
+</script>
 </html>
