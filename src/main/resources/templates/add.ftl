@@ -47,35 +47,35 @@
 </div>
 <div class="body">
     <div class="container" style="margin-top: 50px">
-    <div class="panel panel-default">
-        <!-- Default panel contents -->
-        <div class="panel-heading" style="text-align: center">
-            <button class="btn btn-primary" style="float: right;margin-top: -6px" data-toggle="modal" data-target="#myModal">新增</button>
-            课程列表
-        </div>
-        <div class="panel-body">
-            <!-- Table -->
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>名称</th>
-                    <th>描述</th>
-                    <th>价格</th>
-                    <th>操作</th>
-                </tr>
-                </thead>
-                <tbody data-bind="foreach:goodsList">
-                <tr>
-                    <td data-bind="text:name">Tanmay</td>
-                    <td data-bind="text:intro">Tanmay</td>
-                    <td data-bind="text:price">Tanmay</td>
-                    <td><a data-toggle="modal" data-target="#myModal1" data-bind="event:{click:$root.del.bind($data,id)}">删除</a></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading" style="text-align: center">
+                <button class="btn btn-primary" style="float: right;margin-top: -6px" data-toggle="modal" data-target="#myModal">新增</button>
+                课程列表
+            </div>
+            <div class="panel-body">
+                <!-- Table -->
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>名称</th>
+                        <th>描述</th>
+                        <th>价格</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody data-bind="foreach:goodsList">
+                    <tr>
+                        <td data-bind="text:name">Tanmay</td>
+                        <td data-bind="text:intro">Tanmay</td>
+                        <td data-bind="text:price">Tanmay</td>
+                        <td><a data-toggle="modal" data-target="#myModal1" data-bind="event:{click:$root.del.bind($data,id)}">删除</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
 
-    </div>
+        </div>
     </div>
 </div>
 </body>
@@ -116,19 +116,38 @@
                                 <input type="text" class="col--md-10" data-bind="value:name" placeholder="请输入名称" style="padding: 5px">
                             </div>
                         </div>
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <label for="name" class="col-md-2" style="margin-left: 10px;text-align: center;margin-top: 5px">课程分类:</label>
+                                                        <div class="col-md-8">
+                                                            <div class="row" style="margin-top: 5px">
+                                                            <input type="radio" name="categoryName" data-bind="checked:categoryName" value="python">python
+                                                            <input type="radio" name="categoryName" data-bind="checked:categoryName" value="c语言">c语言
+                                                            <input type="radio" name="categoryName" data-bind="checked:categoryName" value="数据结构">数据结构
+                                                            <input type="radio" name="categoryName" data-bind="checked:categoryName" value="大数据">大数据
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                         <div class="form-group">
                             <div class="row">
                                 <label for="name" class="col-md-2" style="margin-left: 10px;text-align: center;margin-top: 5px">价格:</label>
                                 <input type="text" class="col--md-10" data-bind="value:price" placeholder="请输入价格" style="padding: 5px" >
                             </div>
                         </div>
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <label for="name" class="col-md-2" style="margin-left: 10px;text-align: center;margin-top: 5px">图片地址:</label>
+                                                        <input type="text" class="col--md-10" data-bind="value:url" placeholder="请输入图片地址" style="padding: 5px" >
+                                                    </div>
+                                                </div>
                         <div class="form-group">
                             <div class="row">
                                 <label for="name" class="col-md-2" style="margin-left: 10px;text-align: center;margin-top: 5px">描述:</label>
                                 <input type="text" class="col--md-10" data-bind="value:intro" placeholder="请输入描述" style="padding: 5px">
                             </div>
                         </div>
-<#--                        <button type="submit" class="btn btn-primary" data-bind="submit:commitSubmit">确定</button>-->
+                        <#--                        <button type="submit" class="btn btn-primary" data-bind="submit:commitSubmit">确定</button>-->
                 </div>
             </div>
             <div class="clearfix"></div>
@@ -147,6 +166,8 @@
         name:ko.observable('').extend({required:true}),
         price:ko.observable('').extend({required:true}),
         intro:ko.observable('').extend({required:true}),
+        url:ko.observable('').extend({required:true}),
+        categoryName:ko.observable('').extend({required:true}),
         change:function(){
             $.ajax({
                 url: "/api/goods/"+ viewModel.flag(),
@@ -160,6 +181,8 @@
                     viewModel.price('');
                     viewModel.intro('');
                     viewModel.goodsList([]);
+                    viewModel.url('');
+                    viewModel.categoryName('');
                     $.get('/api/goods',function (result) {
                         console.log(result);
                         $.each(result.list, function (i, el) {
@@ -174,8 +197,8 @@
             return false;
         },
         del:function(id){
-          console.log(id);
-          viewModel.flag(id);
+            console.log(id);
+            viewModel.flag(id);
         },
         commitSubmit: function () {
             if(viewModel.name()== '' || viewModel.price() =='' || viewModel.intro()== ''){
@@ -187,6 +210,8 @@
             list.name = viewModel.name();
             list.price = viewModel.price();
             list.intro = viewModel.intro();
+            list.img = viewModel.url();
+            list.categoryName = viewModel.categoryName();
             console.log(list);
             $.ajax({
                 url: "/api/goods",
