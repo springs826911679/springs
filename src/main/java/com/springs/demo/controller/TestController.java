@@ -16,11 +16,17 @@ public class TestController {
     GoodsService goodsService;
     @Autowired
     UserService userService;
-    @RequestMapping("/index")
+    @RequestMapping("/login")
     public String test(){
        // System.out.println(userService.getCurrentUser());
-        return "index";
+        return "login";
     }
+    @RequestMapping("/register")
+    public String register(){
+        // System.out.println(userService.getCurrentUser());
+        return "register";
+    }
+
     @RequestMapping("/add")
     public String add(){
         return "add";
