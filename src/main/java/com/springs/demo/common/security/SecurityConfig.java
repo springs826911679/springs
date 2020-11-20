@@ -13,5 +13,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/").//指定角色
                 permitAll();
         http.formLogin().loginPage("/index");//指定登录页面
+        http.csrf().disable();
     }
 }

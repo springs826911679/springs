@@ -40,10 +40,9 @@ public class GoodsController {
 
     }
     @PostMapping("/goods")
-    public Goods insertOne(@RequestBody String json){
-        Gson gson = new Gson();
-        Goods article = gson.fromJson(json, Goods.class);
-        return   goodsService.save(article);
+    public Goods insertOne(Goods goods){
+
+        return   goodsService.save(goods);
     }
     @DeleteMapping("/goods/{id}")
     public Integer deleteOne(@PathVariable("id") Integer id) throws Exception {
