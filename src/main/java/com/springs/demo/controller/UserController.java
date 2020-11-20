@@ -23,25 +23,21 @@ public class UserController {
 
     @Autowired
     UserService userService;
+
     @PostMapping ("/register")
-    public User insertOne(@RequestBody User user) {
-
-        if (userService.findFirstByUserByName(user.getUsername())==null){
-            return userService.save(user);
-
-        } else
-            {
-        return null;
-        }
-}   @RequestMapping("/login")
-    public Boolean login(@RequestBody User user){
-
-         User user1 = userService.findFirstByUserByName(user.getUsername());
-         return user1!=null&&user1.getPassword().equals(user.getPassword());
+    public String register(User user) {
+        userService.addUser(user);
+        return user == null ? "注册失败" : "注册成功";
     }
-
-    @GetMapping ("/users")
-    public List<User> getAll(){
-       return userService.getAll();
-    }
+//    @RequestMapping("/login")
+//    public Boolean login(@RequestBody User user){
+//
+//         User user1 = userService.findFirstByUserByName(user.getUsername());
+//         return user1!=null&&user1.getPassword().equals(user.getPassword());
+//    }
+//
+//    @GetMapping ("/users")
+//    public List<User> getAll(){
+//       return userService.getAll();
+//    }
 }

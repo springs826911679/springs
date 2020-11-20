@@ -28,7 +28,7 @@ public class TestController {
 
 
 
-    @RequestMapping("myGoods")
+    @RequestMapping("mygoods")
     public String toMyGoods(){
         return "myGoods";
     }

@@ -11,11 +11,18 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
 import javax.transaction.Transactional;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -24,11 +31,13 @@ import java.util.Optional;
 public class UserService {
     @Autowired
     UserRepository userRepository;
-
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     public User save(User article){
         return userRepository.saveAndFlush(article);
     }
+
     public List<User> getAll(){
        return userRepository.findAll();
     }
@@ -55,9 +64,19 @@ public class UserService {
         }
         return model;
     }
+    public User addUser(User user) {
+        if (user.getUsername() != null && user.getPassword() != null){
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+            userRepository.save(user);
+        }
+        else
+            user = null;
+        return user;
+    }
     public User findFirstByUserByName(String name){
       return   userRepository.findFirstByUsername(name);
     }
+
 
 
 }
