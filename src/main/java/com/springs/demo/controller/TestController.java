@@ -19,16 +19,19 @@ public class TestController {
     @RequestMapping("/index")
     public String test(){
        // System.out.println(userService.getCurrentUser());
-        return "show";
+        return "index";
     }
     @RequestMapping("/add")
     public String add(){
         return "add";
     }
-    @RequestMapping("addGoods")
-    public String addGoods(@RequestBody Goods goods){
 
-        goodsService.save(goods);
-        return "add";
+
+
+    @RequestMapping("myGoods")
+    public String toMyGoods(){
+        return "myGoods";
     }
+
+
 }
