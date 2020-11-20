@@ -16,19 +16,37 @@ public class TestController {
     GoodsService goodsService;
     @Autowired
     UserService userService;
-    @RequestMapping("/index")
-    public String test(){
-       // System.out.println(userService.getCurrentUser());
+
+    @RequestMapping("/")
+    public String index(){
+        // System.out.println(userService.getCurrentUser());
         return "show";
     }
+    @RequestMapping("/login")
+    public String test(){
+       // System.out.println(userService.getCurrentUser());
+        return "login";
+    }
+    @RequestMapping("/register")
+    public String register(){
+        // System.out.println(userService.getCurrentUser());
+        return "register";
+    }
+
     @RequestMapping("/add")
     public String add(){
         return "add";
     }
-    @RequestMapping("addGoods")
-    public String addGoods(@RequestBody Goods goods){
 
-        goodsService.save(goods);
-        return "add";
+    @RequestMapping("/show")
+    public String show(){
+        return "show";
     }
+
+    @RequestMapping("mygoods")
+    public String toMyGoods(){
+        return "myGoods";
+    }
+
+
 }

@@ -7,7 +7,7 @@
     <link href="https://cdn.bootcss.com/twitter-bootstrap/3.4.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body style=" background: url(
-https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1615620802,1087613659&fm=26&gp=0.jpg
+'/login—background.png'
 ) no-repeat center center fixed; background-size: 100%;">
 
 
@@ -17,27 +17,32 @@ https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1615620802,1087613659&
 
             <h4 class="modal-title text-center" id="myModalLabel">登录</h4>
         </div>
+        <form action="/toLogin" method="post">
         <div class="modal-body" id = "model-body">
             <div class="form-group">
 
-                <input type="text" class="form-control"placeholder="用户名" autocomplete="off">
+                <input type="text"  name="username" class="form-control"placeholder="用户名" autocomplete="off">
             </div>
             <div class="form-group">
 
-                <input type="password" class="form-control" placeholder="密码" autocomplete="off">
+                <input type="text" name="password" class="form-control" placeholder="密码" autocomplete="off">
             </div>
         </div>
         <div class="modal-footer">
             <div class="form-group">
-                <button type="button" class="btn btn-primary form-control">登录</button>
+                <button type="submit" class="btn btn-primary form-control">登录</button>
             </div>
             <div class="form-group">
-                <button type="button" class="btn btn-default form-control">注册</button>
+                <a type="button" class="btn btn-default form-control" href="/register">注册</a>
             </div>
-
         </div>
+        </form>
     </div><!-- /.modal-content -->
 </div><!-- /.modal -->
 
 </body>
+
+<script>
+
+</script>
 </html>
