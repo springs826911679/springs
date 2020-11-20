@@ -33,7 +33,7 @@
                         </ul>
                         <div style="float: right;margin-top: 10px">
                             <ul class="nav navbar-nav">
-                                <li><a href="/myGoods">我的课程</a></li>
+                                <li><a href="/mygoods">我的课程</a></li>
                                 <li><a href="/add">录入课程</a></li>
                                 <li><a href="#">退出登录</a></li>
                             </ul>

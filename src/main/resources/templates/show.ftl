@@ -30,7 +30,7 @@
                         </ul>
                         <div style="float: right;margin-top: 10px">
                             <ul class="nav navbar-nav">
-                                <li><a href="/myGoods">我的课程</a></li>
+                                <li><a href="/mygoods">我的课程</a></li>
                                 <li><a href="/add">录入课程</a></li>
                                 <li><a href="#">退出登录</a></li>
                             </ul>
@@ -63,7 +63,7 @@
                     </div>
                     <div class="item">
                         <img src="./banner2.jpg" alt="...">
-                        <div class="carousel-caption">你好，中国</div>
+                        <div class="carousel-caption"></div>
                     </div>
                     <div class="item">
                         <img src="./banner3.png" alt="...">
@@ -84,21 +84,23 @@
         </div>
         <div class="row">
             <h3 style="margin-left: 23px">
-                热门商品<img alt="" src="">
+                热门课程<img alt="" src="">
             </h3>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
+                    <#list goods as good>
                     <div class="col-sm-6 col-md-3">
-                        <a class="thumbnail"  href="#" style="text-decoration: none" data-toggle="modal" data-target="#myModal">
+                            <a class="thumbnail"  href="#" style="text-decoration: none" data-toggle="modal" data-target="#myModal" onclick="enrollment(${good.id?c})">
                             <img src="http://pic.eduwind.cn/t0/uploads/image/png/f9a00238fc0202f3ba941031d5a11a59.png" alt="...">
                             <div class="caption">
-                                <h3>Thumbnail label</h3>
-                                <p>qweqwdsad</p>
+                                <h3>${good.name}</h3>
+                                <p>${good.intro}</p>
                             </div>
-                        </a>
+                             </a>
                     </div>
+                    </#list>
                 </div>
 
             </div>
@@ -123,7 +125,7 @@
                     <div style="margin-bottom: 20px"><h3>课程标题</h3></div>
                     <div>课程作者</div>
                     <div style="margin-top: 50px">
-                        <button class="btn btn-primary" style="margin-right: 30px">加入我的课程</button>
+                        <button class="btn btn-primary" style="margin-right: 30px" onclick="join()">加入我的课程</button>
                     </div>
                 </div>
             </div>
@@ -137,7 +139,27 @@
 </div>
 </body>
 <script>
-    // $('#identifier').modal(options)
+    var goodId;
+    var enrollment = function (id) {
+        goodId = id;
+    };
+    var join = function () {
+        $.ajax({
+            url: "/api/goods-enrollment?id="+goodId,
+            method: "POST",
+            contentType: "application/json", //必须这样写
+            dataType: "json",
+            // data:JSON.stringify(list),
+            success: function (result) {
+                console.log(result);
+                window.location.reload();
+            },
+            error : function(result) {
+                console.log(result);
+            }
+        });
+        return false;
+    }
 </script>
 </html>
 
