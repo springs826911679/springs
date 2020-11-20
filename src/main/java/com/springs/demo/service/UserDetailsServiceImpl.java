@@ -19,6 +19,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         if (user==null){
             throw new UsernameNotFoundException("用户名不存在");
         }
-        return new User(s, user.getPassword(), AuthorityUtils.commaSeparatedStringToAuthorityList("admin"));
+        return new User(s, user.getPassword(), AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_admin"));
     }
 }
