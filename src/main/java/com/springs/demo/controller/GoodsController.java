@@ -40,8 +40,9 @@ public class GoodsController {
 
     }
     @PostMapping("/goods")
-    public Goods insertOne(Goods goods){
-
+    public Goods insertOne(@RequestBody  HashMap<String,Object> map) throws InvocationTargetException, IllegalAccessException {
+        Goods goods = new Goods();
+        BeanUtils.populate(goods,map);
         return   goodsService.save(goods);
     }
     @DeleteMapping("/goods/{id}")
