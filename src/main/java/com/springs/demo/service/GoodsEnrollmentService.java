@@ -43,6 +43,9 @@ public class GoodsEnrollmentService {
     public int deleteOne(Integer id)throws Exception{
         return goodsEnrollmentRepository.retain(id);
     }
+    public List<GoodsEnrollment> findAllByUserId(Integer id){
+        return goodsEnrollmentRepository.findAllByUserId(id);
+    }
 
 
 }

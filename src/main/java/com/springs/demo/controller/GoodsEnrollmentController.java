@@ -5,11 +5,15 @@ import com.google.gson.Gson;
 import com.springs.demo.common.http.PageResult;
 import com.springs.demo.domain.Goods;
 import com.springs.demo.domain.GoodsEnrollment;
+import com.springs.demo.domain.User;
 import com.springs.demo.search.GoodsSearchParams;
 import com.springs.demo.service.GoodsEnrollmentService;
 import com.springs.demo.service.GoodsService;
+import com.springs.demo.service.UserService;
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.lang.reflect.InvocationTargetException;
@@ -22,6 +26,8 @@ public class GoodsEnrollmentController {
 
     @Autowired
     GoodsEnrollmentService goodsEnrollmentService;
+    @Autowired
+    UserService userService;
 
     @GetMapping("/goods-enrollment")
     public PageResult<GoodsEnrollment> getOne(@RequestParam(required = false) Map<String,Object> reqMap) throws InvocationTargetException, IllegalAccessException {
@@ -31,10 +37,15 @@ public class GoodsEnrollmentController {
 
     }
     @PostMapping("/goods-enrollment")
-    public GoodsEnrollment insertOne(@RequestBody String json){
-        Gson gson = new Gson();
-        GoodsEnrollment goodsEnrollment = gson.fromJson(json, GoodsEnrollment.class);
-        return   goodsEnrollmentService.save(goodsEnrollment);
+    public GoodsEnrollment insertOne(@RequestParam("id")Integer id){
+            UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext()
+                    .getAuthentication()
+                    .getPrincipal();
+            User user = userService.findFirstByUserByName(userDetails.getUsername());
+            GoodsEnrollment goodsEnrollment =new GoodsEnrollment();
+            goodsEnrollment.setCourseId(id);
+            goodsEnrollment.setUserId(user.getId());
+           return goodsEnrollmentService.save(goodsEnrollment);
     }
     @DeleteMapping("/goods-enrollment/{id}")
     public Integer deleteOne(@PathVariable("id") Integer id) throws Exception {
@@ -45,6 +56,7 @@ public class GoodsEnrollmentController {
     public GoodsEnrollment getOne(@PathVariable("id")Integer id){
       return   goodsEnrollmentService.findOne(id);
     }
+
 
 
 }
