@@ -26,7 +26,10 @@ public class TestController {
         return "add";
     }
 
-
+    @RequestMapping("/show")
+    public String show(){
+        return "show";
+    }
 
     @RequestMapping("mygoods")
     public String toMyGoods(){
