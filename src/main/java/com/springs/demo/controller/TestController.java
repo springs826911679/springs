@@ -16,6 +16,12 @@ public class TestController {
     GoodsService goodsService;
     @Autowired
     UserService userService;
+
+    @RequestMapping("/")
+    public String index(){
+        // System.out.println(userService.getCurrentUser());
+        return "show";
+    }
     @RequestMapping("/login")
     public String test(){
        // System.out.println(userService.getCurrentUser());
