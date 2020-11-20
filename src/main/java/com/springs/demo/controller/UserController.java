@@ -25,9 +25,9 @@ public class UserController {
     UserService userService;
 
     @PostMapping ("/register")
-    public String register(@RequestBody User user) {
+    public User register(@RequestBody User user) {
         userService.addUser(user);
-        return user == null ? "注册失败" : "注册成功";
+        return user;
     }
 //    @RequestMapping("/login")
 //    public Boolean login(@RequestBody User user){
