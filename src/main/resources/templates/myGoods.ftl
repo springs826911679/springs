@@ -120,7 +120,6 @@
                 <ul class="nav nav-tabs nav-tabs-justified">
                     <div class="row" align="center">
                         <div class="col-md-4 " align="center">
-                            <li style="margin-left: -40px"><a href="#" class="tabtitle" >实验楼</a></li>
                             <li><a href="#">汤河学院，助力年薪百万</a></li>
                             <li>
                                 <div class="row">
