@@ -4,6 +4,7 @@ package com.springs.demo.controller;
 import com.springs.demo.domain.Goods;
 import com.springs.demo.domain.GoodsEnrollment;
 import com.springs.demo.domain.User;
+import com.springs.demo.search.GoodsSearchParams;
 import com.springs.demo.service.GoodsEnrollmentService;
 import com.springs.demo.service.GoodsService;
 import com.springs.demo.service.UserService;
@@ -30,9 +31,10 @@ public class TestController {
     GoodsEnrollmentService goodsEnrollmentService;
 
     @RequestMapping("/")
-    public String index(Model model){
-
-        model.addAttribute("goods",goodsService.getAll());
+    public String index(Model model,@RequestParam(required = false,value = "categoryName")String categoryName){
+        GoodsSearchParams goodsSearchParams = new GoodsSearchParams();
+        goodsSearchParams.setCategoryName(categoryName);
+        model.addAttribute("goods",goodsService.search(goodsSearchParams).getContent());
         // System.out.println(userService.getCurrentUser());
         return "show";
     }
