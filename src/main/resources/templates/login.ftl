@@ -25,7 +25,7 @@
             </div>
             <div class="form-group">
 
-                <input type="text" name="password" class="form-control" placeholder="密码" autocomplete="off">
+                <input type="password" name="password" class="form-control" placeholder="密码" autocomplete="off">
             </div>
         </div>
         <div class="modal-footer">

@@ -7,11 +7,15 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
+
 
 public interface GoodsRepository extends JpaRepository<Goods, Integer>,JpaSpecificationExecutor<Goods> {
     @Modifying
     @Query("delete from Goods where id=:id")
     int retain(@Param("id") Integer id);
+
+    List<Goods> findAllByCategoryName(String name);
 
 //    @Query("update Article set categoryId=null where categoryId=:categoryId")
 //    int resetCategory(@Param("categoryId") Integer categoryId);

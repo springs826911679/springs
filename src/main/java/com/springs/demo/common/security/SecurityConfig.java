@@ -19,9 +19,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/").hasRole("admin")//指定角色
                                 .antMatchers("/add").hasRole("admin")
-                                .antMatchers("/myGoods").hasRole("user,admin")
-                                .antMatchers("/api").permitAll();
-        http.formLogin().loginPage("/login").loginProcessingUrl("/toLogin").defaultSuccessUrl("/show");//指定登录页面
+                                .antMatchers("/mygoods").hasRole("admin")
+                                .antMatchers("/api").permitAll()
+                                .antMatchers("/show").hasRole("admin")
+                                .antMatchers("/register").permitAll()
+                                .antMatchers("/login").permitAll();
+        http.formLogin().loginPage("/login").loginProcessingUrl("/toLogin").defaultSuccessUrl("/");//指定登录页面
+        http.logout();
         http.csrf().disable();
     }
 

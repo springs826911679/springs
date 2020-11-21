@@ -32,9 +32,13 @@ public class TestController {
 
     @RequestMapping("/")
     public String index(Model model,@RequestParam(required = false,value = "categoryName")String categoryName){
-        GoodsSearchParams goodsSearchParams = new GoodsSearchParams();
-        goodsSearchParams.setCategoryName(categoryName);
-        model.addAttribute("goods",goodsService.search(goodsSearchParams).getContent());
+        List<Goods> all=null;
+        if (categoryName==null){
+            all = goodsService.getAll();
+        }else {
+            all= goodsService.findAllByCategoryName(categoryName);
+        }
+        model.addAttribute("goods",all);
         // System.out.println(userService.getCurrentUser());
         return "show";
     }
@@ -54,12 +58,12 @@ public class TestController {
         return "add";
     }
 
-    @RequestMapping("/show")
-    public String show(){
-        return "show";
-    }
+//    @RequestMapping("/show")
+//    public String show(){
+//        return "show";
+//    }
 
-    @RequestMapping("mygoods")
+    @RequestMapping("/mygoods")
     public String toMyGoods(Model model){
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext()
                 .getAuthentication()
@@ -68,7 +72,7 @@ public class TestController {
         List<GoodsEnrollment> goodsEnrollmentList = goodsEnrollmentService.findAllByUserId(user.getId());
         List<Goods> goodss = new ArrayList<>();
         for (GoodsEnrollment goodsEnrollment:goodsEnrollmentList){
-            Goods goods= goodsService.findOne(goodsEnrollment.getId());
+            Goods goods= goodsService.findOne(goodsEnrollment.getCourseId());
             goodss.add(goods);
         }
         model.addAttribute("goods",goodss);

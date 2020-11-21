@@ -23,16 +23,16 @@
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
                         <ul class="nav navbar-nav" style="margin-top: 10px;margin-left: 50px">
-                            <li><a href="/?categoryName='pyhon'">python</a></li>
-                            <li><a href="/?categoryName='c语言'">c语言</a></li>
-                            <li><a href="/?categoryName='数据结构'">数据结构</a></li>
-                            <li><a href="/?categoryName='大数据'">大数据</a></li>
+                            <li><a href="/?categoryName=python">python</a></li>
+                            <li><a href="/?categoryName=c语言">c语言</a></li>
+                            <li><a href="/?categoryName=数据结构">数据结构</a></li>
+                            <li><a href="/?categoryName=大数据">大数据</a></li>
                         </ul>
                         <div style="float: right;margin-top: 10px">
                             <ul class="nav navbar-nav">
                                 <li><a href="/mygoods">我的课程</a></li>
                                 <li><a href="/add">课程管理</a></li>
-                                <li><a href="#">退出登录</a></li>
+                                <li><a href="/logout">退出登录</a></li>
                             </ul>
                         </div>
 

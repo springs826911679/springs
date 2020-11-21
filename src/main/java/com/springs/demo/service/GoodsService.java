@@ -50,28 +50,7 @@ public class GoodsService {
         }
         return model;
     }
-//    public List<Goods> findAllByCategoryId(Integer categoryId){
-//       return goodsRepository.findAllByCategoryId(categoryId);
-//    }
-//    public ArticleDto toDto(Article article) throws InvocationTargetException, IllegalAccessException {
-//        ArticleDto articleDto = new ArticleDto();
-//        BeanUtils.copyProperties(articleDto, article);
-//        if (article.getCategoryId()!=null) {
-//            Optional<ArticleCategory> byId = articleCategoryRepository.findById(article.getCategoryId());
-//            if (byId!=null){
-//            articleDto.setCategoryId(byId.get().getId());
-//            articleDto.setCategoryName(byId.get().getName());
-//            }
-//        }
-//        return articleDto;
-//    }
-//    public List<ArticleDto> toDtos(List<Article> articles) throws InvocationTargetException, IllegalAccessException {
-//        List<ArticleDto> articleDtos = new ArrayList<>();
-//        for (Article article:articles){
-//            ArticleDto articleDto = toDto(article);
-//            articleDtos.add(articleDto);
-//        }
-//        return articleDtos;
-//    }
-
+    public List<Goods> findAllByCategoryName(String name){
+        return goodsRepository.findAllByCategoryName(name);
+    }
 }

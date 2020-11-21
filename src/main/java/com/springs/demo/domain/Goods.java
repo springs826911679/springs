@@ -32,7 +32,7 @@ public class Goods {
     @Column(name = "category_name")
     private String categoryName;
 
-    @Column(name = "static")
+    @Column(name = "static",columnDefinition = "text")
     private String  img;
 
 }

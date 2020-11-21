@@ -16,7 +16,7 @@
     <div class="modal-content">
         <div class="modal-header">
 
-            <h4 class="modal-title text-center" id="myModalLabel">登录</h4>
+            <h4 class="modal-title text-center" id="myModalLabel">注册</h4>
         </div>
         <div class="modal-body" id = "model-body">
             <div class="form-group">
@@ -25,7 +25,7 @@
             </div>
             <div class="form-group">
 
-                <input type="text" name="password" class="form-control" placeholder="密码" id="password">
+                <input type="password" name="password" class="form-control" placeholder="密码" id="password">
             </div>
         </div>
         <div class="modal-footer">

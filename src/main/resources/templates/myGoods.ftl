@@ -56,10 +56,11 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
+                    <#if goods??>
                     <#list goods as good>
                     <div class="col-sm-6 col-md-3">
                         <a class="thumbnail"  href="" style="text-decoration: none" data-toggle="modal" data-target="#myModal" onclick="enrollment(${good.id})">
-                            <img src="http://pic.eduwind.cn/t0/uploads/image/png/f9a00238fc0202f3ba941031d5a11a59.png" alt="...">
+                            <img src="${good.img}" alt="...">
                             <div class="caption">
                                 <h3>${good.name}</h3>
                                 <p>${good.intro}</p>
@@ -67,6 +68,7 @@
                         </a>
                     </div>
                     </#list>
+                    </#if>
                 </div>
 
             </div>
