@@ -21,7 +21,7 @@
             <nav class="navbar ">
                 <div class="container-fluid">
                     <div class="navbar-header" style="margin-left: 150px;margin-top: 10px">
-                        <a class="navbar-brand" href="/show">首页</a>
+                        <a class="navbar-brand" href="/">首页</a>
                     </div>
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
@@ -34,7 +34,7 @@
                         <div style="float: right;margin-top: 10px">
                             <ul class="nav navbar-nav">
                                 <li><a href="/mygoods">我的课程</a></li>
-                                <li><a href="/add">录入课程</a></li>
+                                <li><a href="/add">课程管理</a></li>
                                 <li><a href="#">退出登录</a></li>
                             </ul>
                         </div>

@@ -18,20 +18,20 @@
             <nav class="navbar ">
                 <div class="container-fluid">
                     <div class="navbar-header" style="margin-left: 150px;margin-top: 10px">
-                        <a class="navbar-brand" href="#">首页</a>
+                        <a class="navbar-brand" href="/">首页</a>
                     </div>
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
                         <ul class="nav navbar-nav" style="margin-top: 10px;margin-left: 50px">
-                            <li><a href="#">python</a></li>
-                            <li><a href="#">c语言</a></li>
-                            <li><a href="#">数据结构</a></li>
-                            <li><a href="#">大数据</a></li>
+                            <li><a href="/?categoryName='pyhon'">python</a></li>
+                            <li><a href="/?categoryName='c语言'">c语言</a></li>
+                            <li><a href="/?categoryName='数据结构'">数据结构</a></li>
+                            <li><a href="/?categoryName='大数据'">大数据</a></li>
                         </ul>
                         <div style="float: right;margin-top: 10px">
                             <ul class="nav navbar-nav">
                                 <li><a href="/mygoods">我的课程</a></li>
-                                <li><a href="/add">录入课程</a></li>
+                                <li><a href="/add">课程管理</a></li>
                                 <li><a href="#">退出登录</a></li>
                             </ul>
                         </div>
@@ -93,7 +93,7 @@
                     <#list goods as good>
                     <div class="col-sm-6 col-md-3">
                             <a class="thumbnail"  href="#" style="text-decoration: none" data-toggle="modal" data-target="#myModal" onclick="enrollment(${good.id?c})">
-                            <img src="http://pic.eduwind.cn/t0/uploads/image/png/f9a00238fc0202f3ba941031d5a11a59.png" alt="...">
+                            <img src="${good.img}" alt="...">
                             <div class="caption">
                                 <h3>${good.name}</h3>
                                 <p>${good.intro}</p>
