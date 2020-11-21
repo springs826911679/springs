@@ -50,7 +50,7 @@
         <div class="panel panel-default">
             <!-- Default panel contents -->
             <div class="panel-heading" style="text-align: center">
-                <button class="btn btn-primary" style="float: right;margin-top: -6px" data-toggle="modal" data-target="#myModal">新增</button>
+                <button class="btn btn-primary" style="float: right;margin-top: -6px" data-toggle="modal" data-target="#myModal" id="clear">新增</button>
                 课程列表
             </div>
             <div class="panel-body">
@@ -79,6 +79,7 @@
     </div>
 </div>
 </body>
+
 
 <#--<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">开始演示模态框</button>-->
 <#--模态框-->
@@ -160,6 +161,13 @@
     </div><!-- /.modal -->
 </div>
 <script>
+    $("#clear").click(function () {
+        viewModel.name('');
+        viewModel.price('');
+        viewModel.intro('');
+        viewModel.url('');
+        viewModel.categoryName('');
+    });
     var viewModel = {
         goodsList:ko.observableArray([]),
         flag:ko.observable(''),
@@ -167,7 +175,7 @@
         price:ko.observable('').extend({required:true}),
         intro:ko.observable('').extend({required:true}),
         url:ko.observable('').extend({required:true}),
-        categoryName:ko.observable('').extend({required:true}),
+        categoryName:ko.observable(''),
         change:function(){
             $.ajax({
                 url: "/api/goods/"+ viewModel.flag(),
