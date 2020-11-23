@@ -32,6 +32,10 @@ public class TestController {
 
     @RequestMapping("/")
     public String index(Model model,@RequestParam(required = false,value = "categoryName")String categoryName){
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext()
+                .getAuthentication()
+                .getPrincipal();
+        User user = userService.findFirstByUserByName(userDetails.getUsername());
         List<Goods> all=null;
         if (categoryName==null){
             all = goodsService.getAll();
@@ -39,6 +43,7 @@ public class TestController {
             all= goodsService.findAllByCategoryName(categoryName);
         }
         model.addAttribute("goods",all);
+        model.addAttribute("user",user);
         // System.out.println(userService.getCurrentUser());
         return "show";
     }

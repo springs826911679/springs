@@ -19,6 +19,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         if (user==null){
             throw new UsernameNotFoundException("用户名不存在");
         }
-        return new User(s, user.getPassword(), AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_admin"));
+        if (user.getUsername().equals("admin")){
+            return   new User(s, user.getPassword(), AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_admin"));
+        }else {
+            return   new User(s, user.getPassword(), AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_user"));
+        }
+
     }
 }
