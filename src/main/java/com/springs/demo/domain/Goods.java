@@ -35,4 +35,7 @@ public class Goods {
     @Column(name = "static",columnDefinition = "text")
     private String  img;
 
+    @Column(name = "video",columnDefinition = "text")
+    private String video;
+
 }

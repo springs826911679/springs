@@ -46,7 +46,7 @@
     </div>
 </div>
 <div class="body" >
-    <div class="container" >
+    <div class="container" style="min-height: 550px">
 
         <div class="row">
             <h3 style="margin-left: 23px">

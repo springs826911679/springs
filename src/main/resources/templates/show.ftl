@@ -45,6 +45,7 @@
                                 <#if user.username=='admin'>
                                 <li><a href="/add">课程管理</a></li>
                             </#if>
+                                <li><a href="#">${user.username}</a></li>
                                 <li><a href="/logout">退出登录</a></li>
                             </ul>
                         </div>
@@ -56,7 +57,7 @@
     </div>
 </div>
 <div class="body" >
-    <div class="container" >
+    <div class="container" style="min-height: 550px">
         <div class="row">
             <div id="carousel-example-generic" class="carousel slide"
                  data-ride="carousel">

@@ -148,6 +148,12 @@
                                 <input type="text" class="col--md-10" data-bind="value:intro" placeholder="请输入描述" style="padding: 5px">
                             </div>
                         </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label for="name" class="col-md-2" style="margin-left: 10px;text-align: center;margin-top: 5px">视频地址:</label>
+                                <input type="text" class="col--md-10" data-bind="value:video" placeholder="请输入地址" style="padding: 5px">
+                            </div>
+                        </div>
                         <#--                        <button type="submit" class="btn btn-primary" data-bind="submit:commitSubmit">确定</button>-->
                 </div>
             </div>
@@ -167,6 +173,7 @@
         viewModel.intro('');
         viewModel.url('');
         viewModel.categoryName('');
+        viewModel.video('');
     });
     var viewModel = {
         goodsList:ko.observableArray([]),
@@ -175,6 +182,7 @@
         price:ko.observable('').extend({required:true}),
         intro:ko.observable('').extend({required:true}),
         url:ko.observable('').extend({required:true}),
+        video:ko.observable('').extend({required:true}),
         categoryName:ko.observable(''),
         change:function(){
             $.ajax({
@@ -191,6 +199,7 @@
                     viewModel.goodsList([]);
                     viewModel.url('');
                     viewModel.categoryName('');
+                    viewModel.video('');
                     $.get('/api/goods',function (result) {
                         console.log(result);
                         $.each(result.list, function (i, el) {
@@ -220,6 +229,7 @@
             list.intro = viewModel.intro();
             list.img = viewModel.url();
             list.categoryName = viewModel.categoryName();
+            list.video = viewModel.video();
             console.log(list);
             $.ajax({
                 url: "/api/goods",
@@ -233,6 +243,7 @@
                     viewModel.price('');
                     viewModel.intro('');
                     viewModel.goodsList([]);
+                    viewModel.video('');
                     $.get('/api/goods',function (result) {
                         console.log(result);
                         $.each(result.list, function (i, el) {
