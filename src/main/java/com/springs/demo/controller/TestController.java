@@ -32,10 +32,7 @@ public class TestController {
 
     @RequestMapping("/")
     public String index(Model model,@RequestParam(required = false,value = "categoryName")String categoryName){
-        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext()
-                .getAuthentication()
-                .getPrincipal();
-        User user = userService.findFirstByUserByName(userDetails.getUsername());
+        User user = userService.getCurrentUser();
         List<Goods> all=null;
         if (categoryName==null){
             all = goodsService.getAll();
@@ -70,10 +67,7 @@ public class TestController {
 
     @RequestMapping("/mygoods")
     public String toMyGoods(Model model){
-        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext()
-                .getAuthentication()
-                .getPrincipal();
-        User user = userService.findFirstByUserByName(userDetails.getUsername());
+        User user = userService.getCurrentUser();
         List<GoodsEnrollment> goodsEnrollmentList = goodsEnrollmentService.findAllByUserId(user.getId());
         List<Goods> goodss = new ArrayList<>();
         for (GoodsEnrollment goodsEnrollment:goodsEnrollmentList){
@@ -84,17 +78,7 @@ public class TestController {
         return "myGoods";
     }
 
-//    @RequestMapping("/addMyGoods")
-//    public String addMyGoods(@RequestParam("id")Integer id){
-//        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext()
-//                .getAuthentication()
-//                .getPrincipal();
-//        User user = userService.findFirstByUserByName(userDetails.getUsername());
-//        GoodsEnrollment goodsEnrollment =new GoodsEnrollment();
-//        goodsEnrollment.setCourseId(id);
-//        goodsEnrollment.setUserId(user.getId());
-//        goodsEnrollmentService.save(goodsEnrollment);
-//    }
+
 
 
 }

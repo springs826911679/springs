@@ -13,6 +13,7 @@ import org.springframework.data.domain.Page;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -77,6 +78,11 @@ public class UserService {
       return   userRepository.findFirstByUsername(name);
     }
 
-
+    public User getCurrentUser(){
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext()
+                .getAuthentication()
+                .getPrincipal();
+      return  findFirstByUserByName(userDetails.getUsername());
+    }
 
 }
