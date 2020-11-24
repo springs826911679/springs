@@ -38,4 +38,7 @@ public class Goods {
     @Column(name = "video",columnDefinition = "text")
     private String video;
 
+    @Column(name = "video_name")
+    private String videoName;
+
 }
