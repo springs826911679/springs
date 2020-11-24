@@ -128,7 +128,7 @@
                                 <div style="width: 100%; height: 40px; background-color: green;padding-left: 20px;"><div style="padding-top: 8px" class="fontE">测试</div></div>
                                 <div style="padding-left: 20px;margin-top: 15px">Android自动化测试实战工具 框架 脚本</div>
                                 <div style="opacity: 0.4;padding-left: 20px;margin-top: 15px">找Android自动化测试工作必学的主流工具、框架</div>
-                                <div style="padding-left: 20px;margin-top: 15px"><span style="opacity: 0.4">178在学</span><span style="float: right">￥179.00</span></div>
+                                <div style="padding-left: 20px;margin-top: 15px"><span style="opacity: 0.4">178在学</span></div>
                             </a>
                         </div>
                     <div class="col-sm-6 col-md-3" style="min-height: 235px;max-height: 235px">
@@ -136,7 +136,7 @@
                             <div style="width: 100%; height: 40px; background-color: palevioletred;padding-left: 20px;"><div style="padding-top: 8px" class="fontE">webApp</div></div>
                             <div style="padding-left: 20px;margin-top: 15px">AngularJS仿拉勾网WebApp开发移动端单页应用</div>
                             <div style="opacity: 0.4;padding-left: 20px;margin-top: 15px">基于Angular,拉勾网开发一个移动端单页的应用</div>
-                            <div style="padding-left: 20px;margin-top: 15px"><span style="opacity: 0.4">200在学</span><span style="float: right">￥129.00</span></div>
+                            <div style="padding-left: 20px;margin-top: 15px"><span style="opacity: 0.4">200在学</span></div>
                         </a>
                     </div>
                     <div class="col-sm-6 col-md-3" style="min-height: 235px;max-height: 235px">
@@ -144,7 +144,7 @@
                             <div style="width: 100%; height: 40px; background-color: mediumpurple;padding-left: 20px;"><div style="padding-top: 8px" class="fontE">python</div></div>
                             <div style="padding-left: 20px;margin-top: 15px">python高级编程以及各种的实战教程视频</div>
                             <div style="opacity: 0.4;padding-left: 20px;margin-top: 15px">精选50个python训练任务，带你领略各种爬虫</div>
-                            <div style="padding-left: 20px;margin-top: 15px"><span style="opacity: 0.4">1222在学</span><span style="float: right">￥1222.00</span></div>
+                            <div style="padding-left: 20px;margin-top: 15px"><span style="opacity: 0.4">1222在学</span></div>
                         </a>
                     </div>
                     <div class="col-sm-6 col-md-3" style="min-height: 235px;max-height: 235px">
@@ -152,7 +152,7 @@
                             <div style="width: 100%; height: 40px; background-color: saddlebrown;padding-left: 20px;"><div style="padding-top: 8px" class="fontE">测试</div></div>
                             <div style="padding-left: 20px;margin-top: 15px">Android自动化测试实战工具 框架 脚本</div>
                             <div style="opacity: 0.4;padding-left: 20px;margin-top: 15px">Android自动化测试实战工具 框架 脚本,带你领略移动app</div>
-                            <div style="padding-left: 20px;margin-top: 15px"><span style="opacity: 0.4">178在学</span><span style="float: right">￥179.00</span></div>
+                            <div style="padding-left: 20px;margin-top: 15px"><span style="opacity: 0.4">178在学</span></div>
                         </a>
                     </div>
                     <div class="col-sm-6 col-md-3" style="min-height: 235px;max-height: 235px">
@@ -160,7 +160,7 @@
                             <div style="width: 100%; height: 40px; background-color: green;padding-left: 20px;"><div style="padding-top: 8px" class="fontE">测试</div></div>
                             <div style="padding-left: 20px;margin-top: 15px">Android自动化测试实战工具 框架 脚本</div>
                             <div style="opacity: 0.4;padding-left: 20px;margin-top: 15px">实战工具</div>
-                            <div style="padding-left: 20px;margin-top: 15px"><span style="opacity: 0.4">178在学</span><span style="float: right">￥179.00</span></div>
+                            <div style="padding-left: 20px;margin-top: 15px"><span style="opacity: 0.4">178在学</span></div>
                         </a>
                     </div>
                     <div class="col-sm-6 col-md-3" style="min-height: 235px;max-height: 235px">
@@ -168,7 +168,7 @@
                             <div style="width: 100%; height: 40px; background-color: green;padding-left: 20px;"><div style="padding-top: 8px" class="fontE">测试</div></div>
                             <div style="padding-left: 20px;margin-top: 15px">Android自动化测试实战工具 框架 脚本</div>
                             <div style="opacity: 0.4;padding-left: 20px;margin-top: 15px">实战工具</div>
-                            <div style="padding-left: 20px;margin-top: 15px"><span style="opacity: 0.4">178在学</span><span style="float: right">￥179.00</span></div>
+                            <div style="padding-left: 20px;margin-top: 15px"><span style="opacity: 0.4">178在学</span></div>
                         </a>
                     </div>
                 </div>
