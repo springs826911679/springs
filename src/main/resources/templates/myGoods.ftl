@@ -59,13 +59,14 @@
                     <#if goods??>
                     <#list goods as good>
                     <div class="col-sm-6 col-md-3">
-                        <a class="thumbnail"  href="" style="text-decoration: none" data-toggle="modal" data-target="#myModal" onclick="enrollment(${good.id?c})">
+                        <a class="thumbnail"   style="text-decoration: none" data-toggle="modal" data-target="#myModal" onclick="enrollment(${good.id?c})">
                             <img src="${good.img}" alt="...">
                             <div class="caption">
                                 <h3>${good.name}</h3>
                                 <p>${good.intro}</p>
                             </div>
                         </a>
+
                     </div>
                     </#list>
                     </#if>
@@ -93,6 +94,7 @@
                     <div style="margin-bottom: 20px"><h3>课程标题</h3></div>
                     <div>课程作者</div>
                     <div style="margin-top: 50px">
+                        <button class="btn btn-primary" style="margin-right: 30px;margin-bottom: 20px" onclick="joinVideo()">进入视频学习</button>
                         <button class="btn btn-primary" style="margin-right: 30px" onclick="join()">取消加入我的课程</button>
                     </div>
                 </div>
@@ -167,6 +169,9 @@
     var enrollment = function (id) {
         goodId = id;
     };
+    var joinVideo = function () {
+        window.location.href = '/video/'+goodId;
+    }
     var join = function () {
         $.ajax({
             url: "/api/goods-enrollment/"+goodId,

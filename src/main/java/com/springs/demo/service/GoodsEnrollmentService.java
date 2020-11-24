@@ -47,5 +47,9 @@ public class GoodsEnrollmentService {
         return goodsEnrollmentRepository.findAllByUserId(id);
     }
 
+    @Transactional
+    public Integer deleteAllByCourseIdAndUserId(Integer courseId,Integer userId){
+      return   goodsEnrollmentRepository.deleteAllByCourseIdAndUserId(courseId,userId);
+    }
 
 }
