@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import com.springs.demo.common.http.PageResult;
 import com.springs.demo.domain.Goods;
 import com.springs.demo.search.GoodsSearchParams;
+import com.springs.demo.service.GoodsEnrollmentService;
 import com.springs.demo.service.GoodsService;
 import org.apache.commons.beanutils.BeanUtils;
 import org.hibernate.annotations.Generated;
@@ -22,6 +23,8 @@ public class GoodsController {
 
     @Autowired
     GoodsService goodsService;
+    @Autowired
+    GoodsEnrollmentService goodsEnrollmentService;
 //    @Autowired
 //    UserService userService;
 //    @RequestMapping("/articles")
@@ -47,6 +50,7 @@ public class GoodsController {
     }
     @DeleteMapping("/goods/{id}")
     public Integer deleteOne(@PathVariable("id") Integer id) throws Exception {
+        goodsEnrollmentService.deleteAllByCourseId(id);
         return goodsService.deleteOne(id);
     }
     @PutMapping("/goods/{id}")

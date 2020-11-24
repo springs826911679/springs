@@ -54,4 +54,8 @@ public class GoodsEnrollmentService {
     public GoodsEnrollment findFirstByCourseIdAndUserId(Integer courseId,Integer userId){
         return   goodsEnrollmentRepository.findFirstByCourseIdAndUserId(courseId,userId);
     }
+    @Transactional
+    public Integer deleteAllByCourseId(Integer courseId){
+      return   goodsEnrollmentRepository.deleteAllByCourseId(courseId);
+    }
 }
