@@ -26,7 +26,7 @@ public class UserController {
 
     @PostMapping ("/register")
     public Boolean register(@RequestBody User user) {
-        if (userService.findOne(user.getId())!=null){
+        if (userService.findFirstByUserByName(user.getUsername())!=null){
             return false;
         }else {
             userService.addUser(user);
