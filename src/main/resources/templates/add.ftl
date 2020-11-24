@@ -35,7 +35,7 @@
                             <ul class="nav navbar-nav">
                                 <li><a href="/mygoods">我的课程</a></li>
                                 <li><a href="/add">课程管理</a></li>
-                                <li><a href="#">退出登录</a></li>
+                                <li><a href="/logout">退出登录</a></li>
                             </ul>
                         </div>
 
@@ -150,6 +150,12 @@
                         </div>
                         <div class="form-group">
                             <div class="row">
+                                <label for="name" class="col-md-2" style="margin-left: 10px;text-align: center;margin-top: 5px">课程老师:</label>
+                                <input type="text" class="col--md-10" data-bind="value:author" placeholder="请输入作者" style="padding: 5px">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
                                 <label for="name" class="col-md-2" style="margin-left: 10px;text-align: center;margin-top: 5px">视频地址:</label>
                                 <input type="text" class="col--md-10" data-bind="value:video" placeholder="请输入地址" style="padding: 5px">
                             </div>
@@ -174,11 +180,13 @@
         viewModel.url('');
         viewModel.categoryName('');
         viewModel.video('');
+        viewModel.author('');
     });
     var viewModel = {
         goodsList:ko.observableArray([]),
         flag:ko.observable(''),
         name:ko.observable('').extend({required:true}),
+        author:ko.observable('').extend({required:true}),
         price:ko.observable('').extend({required:true}),
         intro:ko.observable('').extend({required:true}),
         url:ko.observable('').extend({required:true}),
@@ -200,6 +208,7 @@
                     viewModel.url('');
                     viewModel.categoryName('');
                     viewModel.video('');
+                    viewModel.author('');
                     $.get('/api/goods',function (result) {
                         console.log(result);
                         $.each(result.list, function (i, el) {
@@ -230,6 +239,7 @@
             list.img = viewModel.url();
             list.categoryName = viewModel.categoryName();
             list.video = viewModel.video();
+            list.author = viewModel.author();
             console.log(list);
             $.ajax({
                 url: "/api/goods",

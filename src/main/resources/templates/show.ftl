@@ -8,17 +8,11 @@
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script></span>
 
     <style type="text/css">
-        .tabtitle {
-            font-size: 25px;
-            color: #fff;
-            text-shadow: #d56238 0px 2px,
-            #d56238 2px 0px,
-            #d56238 -2px 0px,
-            #d56238 0px -2px,
-            #d56238 -1.4px -1.4px,
-            #d56238 1.4px 1.4px,
-            #d56238 1.4px -1.4px,
-            #d56238 -1.4px 1.4px;
+        .fontE {
+            color: white;
+            font-size:20px;
+            text-shadow: 1px 1px black, -1px -1px black,
+            1px -1px black, -1px 1px black;
         }
     </style>
 </head>
@@ -106,8 +100,8 @@
                 <div class="row">
                     <#list goods as good>
                     <div class="col-sm-6 col-md-3">
-                            <a class="thumbnail"  href="#" style="text-decoration: none" data-toggle="modal" data-target="#myModal" onclick="enrollment(${good.id?c})">
-                            <img src="${good.img}" alt="...">
+                            <a class="thumbnail"  href="#" style="text-decoration: none" data-toggle="modal" data-target="#myModal" onclick="enrollment('${good.id?c}','${good.img}','${good.name}','${good.author}')">
+                            <img src="${good.img}" alt="" style="height: 128px;width: 202px">
                             <div class="caption">
                                 <h3>${good.name}</h3>
                                 <p>${good.intro}</p>
@@ -117,6 +111,67 @@
                     </#list>
                 </div>
 
+            </div>
+        </div>
+
+
+        <div class="row">
+            <h3 style="margin-left: 23px">
+                实战推荐<img alt="" src="">
+            </h3>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                        <div class="col-sm-6 col-md-3" style="max-height: 235px">
+                            <a class="thumbnail"  href="#" style="text-decoration: none">
+                                <div style="width: 100%; height: 40px; background-color: green;padding-left: 20px;"><div style="padding-top: 8px" class="fontE">测试</div></div>
+                                <div style="padding-left: 20px;margin-top: 15px">Android自动化测试实战工具 框架 脚本</div>
+                                <div style="opacity: 0.4;padding-left: 20px;margin-top: 15px">找Android自动化测试工作必学的主流工具、框架</div>
+                                <div style="padding-left: 20px;margin-top: 15px"><span style="opacity: 0.4">178在学</span><span style="float: right">￥179.00</span></div>
+                            </a>
+                        </div>
+                    <div class="col-sm-6 col-md-3" style="min-height: 235px;max-height: 235px">
+                        <a class="thumbnail"  href="#" style="text-decoration: none">
+                            <div style="width: 100%; height: 40px; background-color: palevioletred;padding-left: 20px;"><div style="padding-top: 8px" class="fontE">webApp</div></div>
+                            <div style="padding-left: 20px;margin-top: 15px">AngularJS仿拉勾网WebApp开发移动端单页应用</div>
+                            <div style="opacity: 0.4;padding-left: 20px;margin-top: 15px">基于Angular,拉勾网开发一个移动端单页的应用</div>
+                            <div style="padding-left: 20px;margin-top: 15px"><span style="opacity: 0.4">200在学</span><span style="float: right">￥129.00</span></div>
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-md-3" style="min-height: 235px;max-height: 235px">
+                        <a class="thumbnail"  href="#" style="text-decoration: none">
+                            <div style="width: 100%; height: 40px; background-color: mediumpurple;padding-left: 20px;"><div style="padding-top: 8px" class="fontE">python</div></div>
+                            <div style="padding-left: 20px;margin-top: 15px">python高级编程以及各种的实战教程视频</div>
+                            <div style="opacity: 0.4;padding-left: 20px;margin-top: 15px">精选50个python训练任务，带你领略各种爬虫</div>
+                            <div style="padding-left: 20px;margin-top: 15px"><span style="opacity: 0.4">1222在学</span><span style="float: right">￥1222.00</span></div>
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-md-3" style="min-height: 235px;max-height: 235px">
+                        <a class="thumbnail"  href="#" style="text-decoration: none">
+                            <div style="width: 100%; height: 40px; background-color: saddlebrown;padding-left: 20px;"><div style="padding-top: 8px" class="fontE">测试</div></div>
+                            <div style="padding-left: 20px;margin-top: 15px">Android自动化测试实战工具 框架 脚本</div>
+                            <div style="opacity: 0.4;padding-left: 20px;margin-top: 15px">Android自动化测试实战工具 框架 脚本,带你领略移动app</div>
+                            <div style="padding-left: 20px;margin-top: 15px"><span style="opacity: 0.4">178在学</span><span style="float: right">￥179.00</span></div>
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-md-3" style="min-height: 235px;max-height: 235px">
+                        <a class="thumbnail"  href="#" style="text-decoration: none">
+                            <div style="width: 100%; height: 40px; background-color: green;padding-left: 20px;"><div style="padding-top: 8px" class="fontE">测试</div></div>
+                            <div style="padding-left: 20px;margin-top: 15px">Android自动化测试实战工具 框架 脚本</div>
+                            <div style="opacity: 0.4;padding-left: 20px;margin-top: 15px">实战工具</div>
+                            <div style="padding-left: 20px;margin-top: 15px"><span style="opacity: 0.4">178在学</span><span style="float: right">￥179.00</span></div>
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-md-3" style="min-height: 235px;max-height: 235px">
+                        <a class="thumbnail"  href="#" style="text-decoration: none">
+                            <div style="width: 100%; height: 40px; background-color: green;padding-left: 20px;"><div style="padding-top: 8px" class="fontE">测试</div></div>
+                            <div style="padding-left: 20px;margin-top: 15px">Android自动化测试实战工具 框架 脚本</div>
+                            <div style="opacity: 0.4;padding-left: 20px;margin-top: 15px">实战工具</div>
+                            <div style="padding-left: 20px;margin-top: 15px"><span style="opacity: 0.4">178在学</span><span style="float: right">￥179.00</span></div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -193,10 +248,10 @@
                 <h4 class="modal-title" id="myModalLabel" style="text-align: center">商品详细信息</h4>
             </div>
             <div class="modal-body" style="margin-top: 20px;">
-                <img style="float: left;margin-right: 20px" src="http://pic.eduwind.cn/t0/uploads/image/png/f9a00238fc0202f3ba941031d5a11a59.png" alt="">
+                <img id="img" style="float: left;margin-right: 20px;width: 300px;height: 200px;"  alt="">
                 <div>
-                    <div style="margin-bottom: 20px"><h3>课程标题</h3></div>
-                    <div>课程作者</div>
+                    <div style="margin-bottom: 20px"><h3 id="title">课程标题</h3></div>
+                    <div >课程作者:  <span id="author"></span></div>
                     <div style="margin-top: 50px">
                         <button class="btn btn-primary" style="margin-right: 30px" onclick="join()">加入我的课程</button>
                     </div>
@@ -213,8 +268,14 @@
 </body>
 <script>
     var goodId;
-    var enrollment = function (id) {
+    var img;
+    var name;
+    var enrollment = function (id,img,name,author) {
         goodId = id;
+        // console.log('asdasd');
+        $('#title').html(name);
+        $('#author').html(author);
+        $("#img").attr('src',img);
     };
     var join = function () {
         $.ajax({

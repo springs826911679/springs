@@ -16,7 +16,7 @@
 </head>
 <body style="background-color: #f7f7f7;width: 100%;">
 <div class="nav">
-    <div class="container" style="width: 100%; background-color: #fff">
+    <div class="container" style="width: 100%; background-color: #EFEFEF">
         <div class="rows" >
             <nav class="navbar ">
                 <div class="container-fluid">
@@ -35,7 +35,7 @@
                             <ul class="nav navbar-nav">
                                 <li><a href="/mygoods">我的课程</a></li>
                                 <li><a href="/add">课程管理</a></li>
-                                <li><a href="#">退出登录</a></li>
+                                <li><a href="/logout">退出登录</a></li>
                             </ul>
                         </div>
 
@@ -59,8 +59,8 @@
                     <#if goods??>
                     <#list goods as good>
                     <div class="col-sm-6 col-md-3">
-                        <a class="thumbnail"   style="text-decoration: none" data-toggle="modal" data-target="#myModal" onclick="enrollment(${good.id?c})">
-                            <img src="${good.img}" alt="...">
+                        <a class="thumbnail"   style="text-decoration: none" data-toggle="modal" data-target="#myModal" onclick="enrollment(${good.id?c},'${good.img}','${good.name}','${good.author}')">
+                            <img src="${good.img}" style="height: 128px;width: 202px" alt="">
                             <div class="caption">
                                 <h3>${good.name}</h3>
                                 <p>${good.intro}</p>
@@ -74,10 +74,10 @@
 
             </div>
         </div>
+
+
     </div>
 </div>
-
-
 
 <#--<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">开始演示模态框</button>-->
 <#--模态框-->
@@ -89,13 +89,13 @@
                 <h4 class="modal-title" id="myModalLabel" style="text-align: center">商品详细信息</h4>
             </div>
             <div class="modal-body" style="margin-top: 20px;">
-                <img style="float: left;margin-right: 20px" src="http://pic.eduwind.cn/t0/uploads/image/png/f9a00238fc0202f3ba941031d5a11a59.png" alt="">
+                <img id="img" style="float: left;margin-right: 20px;height: 128px;width: 202px" >
                 <div>
-                    <div style="margin-bottom: 20px"><h3>课程标题</h3></div>
-                    <div>课程作者</div>
-                    <div style="margin-top: 50px">
-                        <button class="btn btn-primary" style="margin-right: 30px;margin-bottom: 20px" onclick="joinVideo()">进入视频学习</button>
-                        <button class="btn btn-primary" style="margin-right: 30px" onclick="join()">取消加入我的课程</button>
+                    <div style="margin-bottom: 20px"><h3 id="title">课程标题</h3></div>
+                    <div >课程作者:  <span id="author"></span></div>
+                    <div style="margin: 50px 0 20px 220px">
+                        <button class="btn btn-primary" style="margin-right: 15px" onclick="joinVideo()">进入视频学习</button>
+                        <button class="btn btn-primary"  onclick="join()">取消加入我的课程</button>
                     </div>
                 </div>
             </div>
@@ -110,7 +110,7 @@
 
     <div class="main_nav_bottom">
         <nav class="navbar navbar-default ">
-            <div class="container" align="center">
+            <div class="container" align="center" style="background-color: gray;width: 100%">
                 <style>
                     .nav-tabs
                     {
@@ -166,8 +166,11 @@
 </body>
 <script>
     var goodId;
-    var enrollment = function (id) {
+    var enrollment = function (id,img,name,author) {
         goodId = id;
+        $('#title').html(name);
+        $('#author').html(author);
+        $("#img").attr('src',img);
     };
     var joinVideo = function () {
         window.location.href = '/video/'+goodId;

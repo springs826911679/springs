@@ -22,7 +22,7 @@
 </head>
 <body style="background-color: #f7f7f7;width: 100%;">
 <div class="nav">
-    <div class="container" style="width: 100%; background-color: #fff">
+    <div class="container" style="width: 100%; background-color: #EFEFEF">
         <div class="rows" >
             <nav class="navbar ">
                 <div class="container-fluid">
@@ -41,7 +41,7 @@
                             <ul class="nav navbar-nav">
                                 <li><a href="/mygoods">我的课程</a></li>
                                 <li><a href="/add">课程管理</a></li>
-                                <li><a href="#">退出登录</a></li>
+                                <li><a href="/logout">退出登录</a></li>
                             </ul>
                         </div>
 
@@ -52,7 +52,7 @@
     </div>
 </div>
 <div class="body" >
-    <div class="container" style="min-height: 550px">
+    <div class="container" style="min-height: 550px;margin-bottom: 70px">
 
         <div class="row">
             <h3 style="margin-left: 23px">
@@ -65,7 +65,7 @@
                     <div class="col-md-7" style="margin-left: 35px">
                         <div class="video" >
                             <video controls="controls">
-                                <source src="http://mooc1vod.stu.126.net/nos/mp4/2014/11/06/901011_sd.mp4" type="video/mp4">
+                                <source src="${goods.video}" type="video/mp4">
                             </video>
                         </div>
                         <div class="comments"  >
@@ -112,7 +112,7 @@
 
 <div class="main_nav_bottom">
     <nav class="navbar navbar-default ">
-        <div class="container" align="center">
+        <div class="container" align="center" style="background-color: gray;width: 100%">
             <style>
                 .nav-tabs
                 {
@@ -127,9 +127,9 @@
                         <li><a href="#">汤河学院，助力年薪百万</a></li>
                         <li>
                             <div class="row">
-<#--                                <span col-md-4><img src="./QQ.png" alt="" style="width: 20px;height: 20px;"></span>-->
-<#--                                <span col-md-4><img src="./微信.png" alt="" style="width: 20px;height: 20px;margin-left: 20px"></span>-->
-<#--                                <span col-md-4><img src="./github.png" alt="" style="width: 20px;height: 20px;margin-left: 20px"></span>-->
+                                <span col-md-4><img src="./QQ.png" alt="" style="width: 20px;height: 20px;"></span>
+                                <span col-md-4><img src="./微信.png" alt="" style="width: 20px;height: 20px;margin-left: 20px"></span>
+                                <span col-md-4><img src="./github.png" alt="" style="width: 20px;height: 20px;margin-left: 20px"></span>
                             </div>
                         </li>
                     </div>
