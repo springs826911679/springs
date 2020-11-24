@@ -24,7 +24,7 @@
 </head>
 <body style="background-color: #f7f7f7;width: 100%;">
 <div class="nav">
-    <div class="container" style="width: 100%; background-color: #fff">
+        <div class="container" style="width: 100%; background-color: #EFEFEF">
         <div class="rows" >
             <nav class="navbar ">
                 <div class="container-fluid">
@@ -56,8 +56,8 @@
         </div>
     </div>
 </div>
-<div class="body" >
-    <div class="container" style="min-height: 550px">
+<div class="body" style="background-color: #fff">
+    <div class="container" style="min-height: 550px;">
         <div class="row">
             <div id="carousel-example-generic" class="carousel slide"
                  data-ride="carousel">
@@ -122,9 +122,9 @@
     </div>
 </div>
 
-    <div class="main_nav_bottom">
-        <nav class="navbar navbar-default ">
-            <div class="container" align="center">
+    <div class="main_nav_bottom" >
+        <nav class="navbar navbar-default " >
+            <div class="container" align="center" style="background-color: gray;width: 100%">
                 <style>
                     .nav-tabs
                     {
@@ -132,9 +132,12 @@
                         height: 40px;
                         line-height: 40px;
                     }
+                    a{
+                        color: inherit;
+                    }
                 </style>
                 <ul class="nav nav-tabs nav-tabs-justified">
-                    <div class="row" align="center">
+                    <div class="row" align="center" style="color:white!important;">
                         <div class="col-md-4 " align="center">
                             <li><a href="#">汤河学院，助力年薪百万</a></li>
                             <li>

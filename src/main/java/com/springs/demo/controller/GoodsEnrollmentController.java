@@ -49,7 +49,8 @@ public class GoodsEnrollmentController {
     }
     @DeleteMapping("/goods-enrollment/{id}")
     public Integer deleteOne(@PathVariable("id") Integer id) throws Exception {
-        return goodsEnrollmentService.deleteOne(id);
+        User currentUser = userService.getCurrentUser();
+        return goodsEnrollmentService.deleteAllByCourseIdAndUserId(id,currentUser.getId());
     }
 
     @GetMapping("/goods-enrollment/{id}")

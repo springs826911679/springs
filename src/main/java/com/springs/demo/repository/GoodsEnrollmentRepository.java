@@ -17,6 +17,8 @@ public interface GoodsEnrollmentRepository extends JpaRepository<GoodsEnrollment
 
 
     List<GoodsEnrollment> findAllByUserId(Integer id);
+
+    Integer deleteAllByCourseIdAndUserId(Integer courseId,Integer userId);
 //    @Query("update Article set categoryId=null where categoryId=:categoryId")
 //    int resetCategory(@Param("categoryId") Integer categoryId);
 //
