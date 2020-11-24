@@ -62,7 +62,7 @@
                     <#if goods??>
                     <#list goods as good>
                     <div class="col-sm-6 col-md-3">
-                        <a class="thumbnail"   style="text-decoration: none" data-toggle="modal" data-target="#myModal" onclick="enrollment(${good.id?c},'${good.img}','${good.name}','${good.author}')">
+                        <a class="thumbnail"   style="text-decoration: none" data-toggle="modal" data-target="#myModal" onclick="enrollment('${good.id?c}','${good.img}','${good.name}','${good.author}')">
                             <img src="${good.img}" style="height: 128px;width: 202px" alt="">
                             <div class="caption">
                                 <h3>${good.name}</h3>
