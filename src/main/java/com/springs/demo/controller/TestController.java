@@ -58,7 +58,8 @@ public class TestController {
     }
 
     @RequestMapping("/add")
-    public String add(){
+    public String add(Model model){
+        model.addAttribute("user",userService.getCurrentUser());
         return "add";
     }
 
