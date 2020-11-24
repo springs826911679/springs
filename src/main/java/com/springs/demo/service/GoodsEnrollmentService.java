@@ -51,5 +51,7 @@ public class GoodsEnrollmentService {
     public Integer deleteAllByCourseIdAndUserId(Integer courseId,Integer userId){
       return   goodsEnrollmentRepository.deleteAllByCourseIdAndUserId(courseId,userId);
     }
-
+    public GoodsEnrollment findFirstByCourseIdAndUserId(Integer courseId,Integer userId){
+        return   goodsEnrollmentRepository.findFirstByCourseIdAndUserId(courseId,userId);
+    }
 }
