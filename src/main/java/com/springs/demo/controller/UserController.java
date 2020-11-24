@@ -25,9 +25,13 @@ public class UserController {
     UserService userService;
 
     @PostMapping ("/register")
-    public User register(@RequestBody User user) {
-        userService.addUser(user);
-        return user;
+    public Boolean register(@RequestBody User user) {
+        if (userService.findOne(user.getId())!=null){
+            return false;
+        }else {
+            userService.addUser(user);
+            return true;
+        }
     }
 //    @RequestMapping("/login")
 //    public Boolean login(@RequestBody User user){
