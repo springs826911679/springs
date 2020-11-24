@@ -5,19 +5,19 @@ import com.springs.demo.domain.Goods;
 import com.springs.demo.domain.GoodsEnrollment;
 import com.springs.demo.domain.User;
 import com.springs.demo.search.GoodsSearchParams;
+import com.springs.demo.search.ThreadSearchParams;
 import com.springs.demo.service.GoodsEnrollmentService;
 import com.springs.demo.service.GoodsService;
+import com.springs.demo.service.ThreadService;
 import com.springs.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +29,8 @@ public class TestController {
     UserService userService;
     @Autowired
     GoodsEnrollmentService goodsEnrollmentService;
+    @Autowired
+    ThreadService threadService;
 
     @RequestMapping("/")
     public String index(Model model,@RequestParam(required = false,value = "categoryName")String categoryName){
@@ -76,6 +78,15 @@ public class TestController {
         }
         model.addAttribute("goods",goodss);
         return "myGoods";
+    }
+    @RequestMapping("/video/{id}")
+    public String toMyGoods(Model model, @PathVariable("id") Integer id) throws InvocationTargetException, IllegalAccessException {
+        Goods goods= goodsService.findOne(id);
+        ThreadSearchParams threadSearchParams = new ThreadSearchParams();
+        threadSearchParams.setGoodsId(id);
+        model.addAttribute("goods",goods);
+        model.addAttribute("threads",threadService.search(threadSearchParams));
+        return "video";
     }
 
 

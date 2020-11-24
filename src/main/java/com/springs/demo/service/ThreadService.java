@@ -32,7 +32,7 @@ public class ThreadService {
 
 
 
-    public PageResult<ThreadDto> search(ThreadSearchParams threadSearchParams, Object withChild) throws InvocationTargetException, IllegalAccessException {
+    public PageResult<ThreadDto> search(ThreadSearchParams threadSearchParams) throws InvocationTargetException, IllegalAccessException {
         PageResult<ThreadDto> threadDtoPageResult = new PageResult<>();
         PageSearch<Thread> search = new PageSearch<>(threadRepository,threadRepository);
         PageResult<Thread> wrap = PageResult.wrap(search.search(threadSearchParams));

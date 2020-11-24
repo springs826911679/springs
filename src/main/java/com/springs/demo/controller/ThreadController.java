@@ -26,8 +26,7 @@ public class ThreadController {
     public PageResult<ThreadDto> getAll(@RequestParam(required = false) Map<String,Object> reqMap) throws InvocationTargetException, IllegalAccessException {
         ThreadSearchParams threadSearchParams = new ThreadSearchParams();
         BeanUtils.populate(threadSearchParams,reqMap);
-        Object withChild = reqMap.get("withChild");
-        return  threadService.search(threadSearchParams,withChild);
+        return  threadService.search(threadSearchParams);
     }
     @PostMapping("/threads")
     public Thread insertOne(@RequestBody Thread thread){
