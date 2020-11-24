@@ -38,14 +38,17 @@ public class GoodsEnrollmentController {
     }
     @PostMapping("/goods-enrollment")
     public GoodsEnrollment insertOne(@RequestParam("id")Integer id){
-            UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext()
-                    .getAuthentication()
-                    .getPrincipal();
-            User user = userService.findFirstByUserByName(userDetails.getUsername());
-            GoodsEnrollment goodsEnrollment =new GoodsEnrollment();
+            User user = userService.getCurrentUser();
+        GoodsEnrollment goodsEnrollment = goodsEnrollmentService.findFirstByCourseIdAndUserId(id, user.getId());
+        if (goodsEnrollment!=null){
+            return goodsEnrollmentService.save(goodsEnrollment);
+        }else {
+            goodsEnrollment =new GoodsEnrollment();
             goodsEnrollment.setCourseId(id);
             goodsEnrollment.setUserId(user.getId());
-           return goodsEnrollmentService.save(goodsEnrollment);
+            return goodsEnrollmentService.save(goodsEnrollment);
+        }
+
     }
     @DeleteMapping("/goods-enrollment/{id}")
     public Integer deleteOne(@PathVariable("id") Integer id) throws Exception {
