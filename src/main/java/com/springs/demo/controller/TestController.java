@@ -77,6 +77,7 @@ public class TestController {
             goodss.add(goods);
         }
         model.addAttribute("goods",goodss);
+        model.addAttribute("user",user);
         return "myGoods";
     }
     @RequestMapping("/video/{id}")
@@ -86,6 +87,7 @@ public class TestController {
         threadSearchParams.setGoodsId(id);
         model.addAttribute("goods",goods);
         model.addAttribute("threads",threadService.search(threadSearchParams));
+        model.addAttribute("user",userService.getCurrentUser());
         return "video";
     }
 
