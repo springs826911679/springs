@@ -35,6 +35,7 @@
                             <ul class="nav navbar-nav">
                                 <li><a href="/mygoods">我的课程</a></li>
                                 <li><a href="/add">课程管理</a></li>
+                                <li><a href="#">${user.username}</a></li>
                                 <li><a href="/logout">退出登录</a></li>
                             </ul>
                         </div>

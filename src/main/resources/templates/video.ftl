@@ -40,7 +40,10 @@
                         <div style="float: right;margin-top: 10px">
                             <ul class="nav navbar-nav">
                                 <li><a href="/mygoods">我的课程</a></li>
-                                <li><a href="/add">课程管理</a></li>
+                                <#if user.username=='admin'>
+                                    <li><a href="/add">课程管理</a></li>
+                                </#if>
+                                <li><a href="#">${user.username}</a></li>
                                 <li><a href="/logout">退出登录</a></li>
                             </ul>
                         </div>
