@@ -10,6 +10,7 @@ import com.springs.demo.service.GoodsService;
 import org.apache.commons.beanutils.BeanUtils;
 import org.hibernate.annotations.Generated;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.lang.reflect.InvocationTargetException;
@@ -35,6 +36,7 @@ public class GoodsController {
 //        }
 //        return null;
 //    }
+
     @GetMapping("/goods")
     public PageResult<Goods> getOne(@RequestParam(required = false) Map<String,Object> reqMap) throws InvocationTargetException, IllegalAccessException {
         GoodsSearchParams articleSearchParams = new GoodsSearchParams();
@@ -42,18 +44,20 @@ public class GoodsController {
         return     PageResult.wrap(goodsService.search(articleSearchParams));
 
     }
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/goods")
     public Goods insertOne(@RequestBody  HashMap<String,Object> map) throws InvocationTargetException, IllegalAccessException {
         Goods goods = new Goods();
         BeanUtils.populate(goods,map);
         return   goodsService.save(goods);
     }
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("/goods/{id}")
     public Integer deleteOne(@PathVariable("id") Integer id) throws Exception {
         goodsEnrollmentService.deleteAllByCourseId(id);
         return goodsService.deleteOne(id);
     }
-    @PutMapping("/goods/{id}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Goods updateOne(@RequestBody HashMap<String,Object> map, @PathVariable("id") Integer id) throws InvocationTargetException, IllegalAccessException {
       return   goodsService.updateOne(id,map);
     }
