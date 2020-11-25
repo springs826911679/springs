@@ -44,20 +44,20 @@ public class GoodsController {
         return     PageResult.wrap(goodsService.search(articleSearchParams));
 
     }
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_admin')")
     @PostMapping("/goods")
     public Goods insertOne(@RequestBody  HashMap<String,Object> map) throws InvocationTargetException, IllegalAccessException {
         Goods goods = new Goods();
         BeanUtils.populate(goods,map);
         return   goodsService.save(goods);
     }
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_admin')")
     @DeleteMapping("/goods/{id}")
     public Integer deleteOne(@PathVariable("id") Integer id) throws Exception {
         goodsEnrollmentService.deleteAllByCourseId(id);
         return goodsService.deleteOne(id);
     }
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_admin')")
     public Goods updateOne(@RequestBody HashMap<String,Object> map, @PathVariable("id") Integer id) throws InvocationTargetException, IllegalAccessException {
       return   goodsService.updateOne(id,map);
     }
