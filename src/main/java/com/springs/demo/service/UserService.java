@@ -1,6 +1,7 @@
 package com.springs.demo.service;
 
 import com.springs.demo.common.search.PageSearch;
+import com.springs.demo.common.security.UserDetail;
 import com.springs.demo.domain.Goods;
 import com.springs.demo.domain.User;
 import com.springs.demo.repository.GoodsRepository;
@@ -79,10 +80,10 @@ public class UserService {
     }
 
     public User getCurrentUser(){
-        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext()
+        UserDetail userDetail = (UserDetail) SecurityContextHolder.getContext()
                 .getAuthentication()
                 .getPrincipal();
-      return  findFirstByUserByName(userDetails.getUsername());
+      return  findOne(Integer.parseInt(userDetail.getId()));
     }
 
 }

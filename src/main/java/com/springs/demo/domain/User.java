@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "tbl_user")
 @EntityListeners(AuditingEntityListener.class)
-public class User {
+public class User  {
 
     @Id
     @GeneratedValue
