@@ -19,12 +19,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/").hasAnyRole("admin","user")//指定角色
-                                .antMatchers("/add").hasAnyRole("admin")
-                                .antMatchers("/mygoods").hasAnyRole("admin","user")
+        http.authorizeRequests().antMatchers("/").hasAnyRole("ADMIN","USER")//指定角色
+                                .antMatchers("/add").hasAnyRole("ADMIN")
+                                .antMatchers("/mygoods").hasAnyRole("ADMIN","USER")
                                 .antMatchers("/api").authenticated()
-                                .antMatchers("/video").hasAnyRole("admin","user")
-                                .antMatchers("/show").hasAnyRole("admin")
+                                .antMatchers("/video").hasAnyRole("ADMIN","USER")
+                                .antMatchers("/show").hasAnyRole("ADMIN")
                                 .antMatchers("/register").permitAll()
                                 .antMatchers("/login").permitAll();
         http.formLogin().loginPage("/login").loginProcessingUrl("/toLogin").defaultSuccessUrl("/");//指定登录页面

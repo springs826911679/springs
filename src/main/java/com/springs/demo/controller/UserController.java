@@ -10,6 +10,7 @@ import com.springs.demo.service.GoodsService;
 import com.springs.demo.service.UserService;
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.lang.reflect.InvocationTargetException;
@@ -40,8 +41,9 @@ public class UserController {
 //         return user1!=null&&user1.getPassword().equals(user.getPassword());
 //    }
 //
-//    @GetMapping ("/users")
-//    public List<User> getAll(){
-//       return userService.getAll();
-//    }
+    @PreAuthorize("HasRole('ADMIN')")
+    @GetMapping ("/users")
+    public List<User> getAll(){
+       return userService.getAll();
+    }
 }
