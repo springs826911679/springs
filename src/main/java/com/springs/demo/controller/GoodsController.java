@@ -58,6 +58,7 @@ public class GoodsController {
         return goodsService.deleteOne(id);
     }
     @PreAuthorize("hasRole('ADMIN')")
+    @PutMapping("/goods/{id}")
     public Goods updateOne(@RequestBody HashMap<String,Object> map, @PathVariable("id") Integer id) throws InvocationTargetException, IllegalAccessException {
       return   goodsService.updateOne(id,map);
     }

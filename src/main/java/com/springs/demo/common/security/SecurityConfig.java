@@ -20,9 +20,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/").hasAnyRole("ADMIN","USER")//指定角色
-                                .antMatchers("/add").hasAnyRole("ADMIN")
+                                .antMatchers("/add").hasAnyRole("ADMIN","USER")
                                 .antMatchers("/mygoods").hasAnyRole("ADMIN","USER")
-                                .antMatchers("/api").authenticated()
+//                                .antMatchers("/api").authenticated()
                                 .antMatchers("/video").hasAnyRole("ADMIN","USER")
                                 .antMatchers("/show").hasAnyRole("ADMIN")
                                 .antMatchers("/register").permitAll()

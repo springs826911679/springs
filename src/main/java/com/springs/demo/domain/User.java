@@ -5,6 +5,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -29,6 +30,21 @@ public class User  {
     @Column(name = "roles_encode",columnDefinition = "char(64) default 'USER'",nullable=false)
     private String rolesEncode;
 
+    @Column(name = "count")
+    private Integer count;
+
+    @Column(name = "phone")
+    private String phone;
+
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "address")
+    private String address;
+
+    @Column(name = "create_date")
+    private Date createDate;
+
 
     public Set<String> getRoles() {
         if(this.rolesEncode!=null && !this.rolesEncode.isEmpty()){
@@ -41,7 +57,10 @@ public class User  {
     @PrePersist
     public void beforeSave(){
         if(this.rolesEncode == null){
-            this.rolesEncode = "ADMIN";
+            this.rolesEncode = "USER";
+        }
+        if(this.createDate == null){
+            this.createDate = new Date();
         }
     }
 

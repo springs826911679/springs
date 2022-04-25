@@ -14,6 +14,6 @@ public class UserSearchParams extends SearchParams {
     public Integer id;
 
     @SearchProporty
-    public String  name;
+    public String  username;
 
 }

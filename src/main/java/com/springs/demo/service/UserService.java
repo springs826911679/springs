@@ -86,4 +86,9 @@ public class UserService {
       return  findOne(Integer.parseInt(userDetail.getId()));
     }
 
+    @Transactional
+    public Integer deleteByIdIn(List<Integer> ids){
+        return userRepository.deleteByIdIn(ids);
+    }
+
 }
